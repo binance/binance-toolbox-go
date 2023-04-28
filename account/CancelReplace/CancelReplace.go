@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	binance_connector "github.com/binance/binance-connector-go"
+	binance_toolbox "github.com/binance/binance-toolbox-go"
 )
 
 func main() {
@@ -12,11 +13,7 @@ func main() {
 }
 
 func CancelReplace() {
-	apiKey := "your api key"
-	secretKey := "your secret key"
-	baseURL := "https://api.binance.com"
-
-	client := binance_connector.NewClient(apiKey, secretKey, baseURL)
+	client := binance_connector.NewClient(binance_toolbox.API_KEY, binance_toolbox.SECRET_KEY, binance_toolbox.BASE_URL)
 
 	// Cancel an Existing Order and Send a New Order (TRADE) - POST /api/v3/order/cancelReplace
 	cancelReplace, err := client.NewCancelReplaceService().

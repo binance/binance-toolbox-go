@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	binance_connector "github.com/binance/binance-connector-go"
+	binance_toolbox "github.com/binance/binance-toolbox-go"
 )
 
 func main() {
@@ -12,11 +13,7 @@ func main() {
 }
 
 func FundingWallet() {
-	apiKey := "your api key"
-	secretKey := "your secret key"
-	baseURL := "https://api.binance.com"
-
-	client := binance_connector.NewClient(apiKey, secretKey, baseURL)
+	client := binance_connector.NewClient(binance_toolbox.API_KEY, binance_toolbox.SECRET_KEY, binance_toolbox.BASE_URL)
 
 	// FundingWalletService - /sapi/v1/asset/get-funding-asset
 	fundingWallet, err := client.NewFundingWalletService().Asset("BTC").

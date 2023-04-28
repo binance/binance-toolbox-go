@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	binance_connector "github.com/binance/binance-connector-go"
+	binance_toolbox "github.com/binance/binance-toolbox-go"
 )
 
 func main() {
@@ -12,10 +13,7 @@ func main() {
 }
 
 func HistoricalTradeLookup() {
-	apiKey := "your api key"
-	baseURL := "https://api.binance.com"
-
-	client := binance_connector.NewClient(apiKey, "", baseURL)
+	client := binance_connector.NewClient(binance_toolbox.API_KEY, "", binance_toolbox.BASE_URL)
 
 	historicalTradeLookup, err := client.NewHistoricalTradeLookupService().
 		Symbol("BTCUSDT").Do(context.Background())

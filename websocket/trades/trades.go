@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	binance_connector "github.com/binance/binance-connector-go"
+	binance_toolbox "github.com/binance/binance-toolbox-go"
 )
 
 func main() {
@@ -11,7 +12,7 @@ func main() {
 }
 
 func WsTradeExample() {
-	websocketStreamClient := binance_connector.NewWebsocketStreamClient(false)
+	websocketStreamClient := binance_connector.NewWebsocketStreamClient(false, binance_toolbox.WS_BASE_URL)
 	wsTradeHandler := func(event *binance_connector.WsTradeEvent) {
 		fmt.Println(binance_connector.PrettyPrint(event))
 	}

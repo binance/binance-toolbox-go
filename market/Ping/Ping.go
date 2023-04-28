@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	binance_connector "github.com/binance/binance-connector-go"
+	binance_toolbox "github.com/binance/binance-toolbox-go"
 )
 
 func main() {
@@ -12,9 +13,7 @@ func main() {
 }
 
 func Ping() {
-	baseURL := "https://api.binance.com"
-
-	client := binance_connector.NewClient("", "", baseURL)
+	client := binance_connector.NewClient("", "", binance_toolbox.BASE_URL)
 
 	// NewPingService
 	ping := client.NewPingService().Do(context.Background())

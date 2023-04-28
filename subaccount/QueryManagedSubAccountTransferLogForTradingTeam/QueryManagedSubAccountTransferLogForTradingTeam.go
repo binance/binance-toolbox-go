@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	binance_connector "github.com/binance/binance-connector-go"
+	binance_toolbox "github.com/binance/binance-toolbox-go"
 )
 
 func main() {
@@ -12,11 +13,7 @@ func main() {
 }
 
 func QueryManagedSubAccountTransferLogForTradingTeam() {
-	apiKey := "your api key"
-	secretKey := "your secret key"
-	baseURL := "https://api.binance.com"
-
-	client := binance_connector.NewClient(apiKey, secretKey, baseURL)
+	client := binance_connector.NewClient(binance_toolbox.API_KEY, binance_toolbox.SECRET_KEY, binance_toolbox.BASE_URL)
 
 	// Query Managed Sub Account Transfer Log (Trading Team) (USER_DATA)
 	queryManagedSubAccountTransferLogForTradingTeam, err := client.NewQueryManagedSubAccountTransferLogForTradingTeamService().Email("email@email.com").

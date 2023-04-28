@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	binance_connector "github.com/binance/binance-connector-go"
+	binance_toolbox "github.com/binance/binance-toolbox-go"
 )
 
 func main() {
@@ -12,11 +13,7 @@ func main() {
 }
 
 func DepositAssetsIntoManagedSubAccount() {
-	apiKey := "your api key"
-	secretKey := "your secret key"
-	baseURL := "https://api.binance.com"
-
-	client := binance_connector.NewClient(apiKey, secretKey, baseURL)
+	client := binance_connector.NewClient(binance_toolbox.API_KEY, binance_toolbox.SECRET_KEY, binance_toolbox.BASE_URL)
 
 	// Deposit Assets Into The Managed Sub-account（For Investor Master Account） - /sapi/v1/sub-account/managed-subaccount/deposit
 	depositAssetsIntoManagedSubAccount, err := client.NewDepositAssetsIntoManagedSubAccountService().ToEmail("to@email.com").

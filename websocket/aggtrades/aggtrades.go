@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	binance_connector "github.com/binance/binance-connector-go"
+	binance_toolbox "github.com/binance/binance-toolbox-go"
 )
 
 func main() {
@@ -12,7 +13,7 @@ func main() {
 
 func AggTradesExample() {
 	// Initialise Websocket Client with Testnet BaseURL and false for "Combined" parameter
-	websocketStreamClient := binance_connector.NewWebsocketStreamClient(false, "wss://testnet.binance.vision")
+	websocketStreamClient := binance_connector.NewWebsocketStreamClient(false, binance_toolbox.WS_BASE_URL)
 
 	wsAggTradeHandler := func(event *binance_connector.WsAggTradeEvent) {
 		fmt.Println(binance_connector.PrettyPrint(event))

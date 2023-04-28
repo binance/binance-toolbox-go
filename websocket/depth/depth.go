@@ -5,6 +5,7 @@ import (
 	"time"
 
 	binance_connector "github.com/binance/binance-connector-go"
+	binance_toolbox "github.com/binance/binance-toolbox-go"
 )
 
 func main() {
@@ -12,7 +13,7 @@ func main() {
 }
 
 func WsDepthHandlerExample() {
-	websocketStreamClient := binance_connector.NewWebsocketStreamClient(false)
+	websocketStreamClient := binance_connector.NewWebsocketStreamClient(false, binance_toolbox.WS_BASE_URL)
 	wsDepthHandler := func(event *binance_connector.WsDepthEvent) {
 		fmt.Println(binance_connector.PrettyPrint(event))
 	}
